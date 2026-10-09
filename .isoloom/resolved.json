@@ -57,5 +57,16 @@
       }
     ]
   },
-  "message": null
+  "cloud": {
+    "provider": "aws",
+    "terraform": "app/aws",
+    "outputs": [
+      "access_key_id",
+      "secret_key",
+      "account"
+    ],
+    "inputs": [],
+    "hourly_usd": 0.01
+  },
+  "message": "You are the starting IAM user in account {{ cloud.outputs.account }} (region us-east-1):\n  aws configure --profile cloudfoxable   # access key {{ cloud.outputs.access_key_id }}\n                                         # secret key {{ cloud.outputs.secret_key }}\nThe challenges, their hints and the scoreboard are at https://cloudfoxable.bishopfox.com.\nFirst flag: FLAG{congrats_you_are_now_a_terraform_expert_happy_hunting}\n"
 }
