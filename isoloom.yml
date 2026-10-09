@@ -39,7 +39,7 @@ checks:
     wait: 120
 
 message: |
-  You are ctf-starting-user in account {{ cloud.outputs.account }} (region us-east-1):
+  You are the starting IAM user in account {{ cloud.outputs.account }} (region us-east-1):
     aws configure --profile cloudfoxable   # access key {{ cloud.outputs.access_key_id }}
                                            # secret key {{ cloud.outputs.secret_key }}
   The challenges, their hints and the scoreboard are at https://cloudfoxable.bishopfox.com.
