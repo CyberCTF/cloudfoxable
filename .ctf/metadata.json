@@ -1,0 +1,8 @@
+{
+  "title": "CloudFoxable",
+  "description": "A gamified cloud hacking sandbox by Bishop Fox, deployed into your own AWS account: twelve challenges (secrets in SSM and Secrets Manager, Lambda function URLs, SNS and SQS, role trusts, CloudFormation, privilege escalation paths) found and exploited from a starting IAM user, with CloudFox and the AWS CLI.",
+  "question": "Starting as ctf-starting-user, find and capture the flags of the deployed challenges.",
+  "category": "MISC",
+  "difficulty": 2,
+  "evidence_kind": "SECRET"
+}

@@ -1,0 +1,33 @@
+name: Segue
+category: 'Assumed Breach: Principal'
+description: |-
+  **Overview**
+
+  - **Author:** Gerben Kleijn (Bishop Fox)
+  - **Default state:** Enabled
+  - **Estimated Cost:** $0.00/month
+  - **Starting Point:** `arn:aws:iam::ACCOUNT_ID:role/reinier`
+
+  **CloudFoxable Setup**
+
+  None required.
+
+  **Challenge Details**
+
+  You've just gained access to the reinier role. Utilize cloudfox and see where it takes you! 
+
+  **Cleanup Tasks**
+
+  None required.
+value: 200
+
+flags:
+- content: 'FLAG{SEGUE:not_everything_is_as_it_seems}'
+  type: static
+  data: case_insensitive
+
+hints:
+- >-
+  Sometimes you have to make an educated guess.
+- >-
+  Just because you don't have list permissions does not mean you don't have get permissions

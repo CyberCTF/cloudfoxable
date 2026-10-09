@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# CloudFoxable by Bishop Fox (https://github.com/BishopFox/cloudfoxable): a gamified cloud hacking
+# sandbox, its AWS challenges deployed into your own account and scored at
+# https://cloudfoxable.bishopfox.com. This lab enables upstream's "low or no cost, always on" set
+# (12 challenges); the costly ones (bastion, variable, wyatt, double tap, white rabbit, search)
+# and the GitHub ones (trust me) stay off, as upstream's example configuration has them.
+# Source in app/ (upstream, unchanged); the Terraform root is app/aws.
+# Run: `aws login`, then `isoloom run cloud-services`; end it with `isoloom down cloud-services`.
+version: 1
+name: cloudfoxable
+
+cloud:
+  provider: aws
+  terraform: app/aws
+  vars:
+    AWS_REGION: us-east-1
+    aws_local_profile: default
+    its_a_secret_enabled: "true"
+    its_another_secret_enabled: "true"
+    backwards_enabled: "true"
+    furls1_enabled: "true"
+    furls2_enabled: "true"
+    the_topic_is_exposure_enabled: "true"
+    the_topic_is_execution_enabled: "true"
+    middle_enabled: "true"
+    root_enabled: "true"
+    needles_enabled: "true"
+    pain_enabled: "true"
+    segue_enabled: "true"
+  outputs:
+    access_key_id: CTF_Start_User_Access_Key_Id
+    secret_key: CTF_Start_User_Secret_Access_Key
+    account: CTF_Account
+  hourly_usd: 0.01
+
+checks:
+  - name: the starting user can sign in and the challenges' topics and queues exist
+    script: checks/start.sh
+    wait: 120
+
+message: |
+  You are ctf-starting-user in account {{ cloud.outputs.account }} (region us-east-1):
+    aws configure --profile cloudfoxable   # access key {{ cloud.outputs.access_key_id }}
+                                           # secret key {{ cloud.outputs.secret_key }}
+  The challenges, their hints and the scoreboard are at https://cloudfoxable.bishopfox.com.
+  First flag: FLAG{congrats_you_are_now_a_terraform_expert_happy_hunting}

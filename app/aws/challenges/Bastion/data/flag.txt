@@ -1,0 +1,1 @@
+{FLAG:bastion::ifYouHaveAccessToAnEC2YouHaveAccessToItsIamPermissions}
